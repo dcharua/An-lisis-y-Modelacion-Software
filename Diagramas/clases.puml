@@ -1,3 +1,21 @@
 @startuml
-  Class Persona
+  Class Persona{
+    String nombre
+    int edad
+    char genero
+  }
+  Class Profesor
+  Class Interfaz
+  Class Transporte
+  Class Asientos
+  Class Cumbias
+
+  Persona <|-- Profesor : anota
+  Interfaz <|.. Profesor
+  Profesor -- Transporte : usa >
+
+  Transporte o-- Asientos : aggregation
+  Transporte *-- Cumbias: composition
 @enduml
+
+'publico +     privado-    protected#'

@@ -1,0 +1,39 @@
+''
+@startuml
+  Class Obra{
+    -String titulo
+    -String autor
+    -int antiguedad
+
+    +Obra()
+  }
+  Class Compra{
+    -datestamp fecha
+    -float costo
+
+    +reportes()
+  }
+  Class Almacen{
+    -String direccion
+
+    +ABC()
+  }
+  Class Venta{
+    -datestamp fecha
+    -float costo
+
+    +ABC()
+  }
+
+  Class Vendedor{
+  -  String nombre
+  }
+  Class Comprador{
+  -  String nombre
+  }
+  Obra --* Compra: contiene
+  Venta -- Almacen: usa
+  Almacen -- Compra: contiene
+  Venta -- Comprador
+  Venta -- Vendedor
+@enduml

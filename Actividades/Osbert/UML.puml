@@ -10,7 +10,6 @@
   Class Compra{
     -datestamp fecha
     -float costo
-
     +reportes()
   }
   Class Almacen{
@@ -26,7 +25,8 @@
   }
 
   Class Vendedor{
-  -  String nombre
+  - String nombre
+  -
   }
   Class Comprador{
   -  String nombre

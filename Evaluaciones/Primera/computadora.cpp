@@ -33,40 +33,59 @@ public:
 };
 
 class Laptop : public Fabrica{
+  friend class Fabrica;
 public:
   void queSoy(){
     std::cout << "Soy Laptop" << '\n';
   }
+private:
+  Laptop():Fabrica(){}
 };
 class Desktop : public Fabrica{
+  friend class Fabrica;
 public:
   void queSoy(){
     std::cout << "Soy Desktop" << '\n';
   }
+private:
+  Desktop():Fabrica(){}
 };
 class Netbook : public Fabrica{
+  friend class Fabrica;
 public:
   void queSoy(){
     std::cout << "Soy Netbook" << '\n';
   }
+private:
+  Netbook():Fabrica(){}
+
 };
 class Tablet : public Fabrica{
+  friend class Fabrica;
 public:
   void queSoy(){
     std::cout << "Soy Tablet" << '\n';
   }
+private:
+  Tablet():Fabrica(){}
 };
 class Rack : public Fabrica{
+friend class Fabrica;
 public:
   void queSoy(){
     std::cout << "Soy Rack" << '\n';
   }
+private:
+  Rack():Fabrica(){}
 };
 class Tower : public Fabrica{
+  friend class Fabrica;
 public:
   void queSoy(){
     std::cout << "Soy Tower" << '\n';
   }
+private:
+  Tower():Fabrica(){}
 };
 
 int main() {

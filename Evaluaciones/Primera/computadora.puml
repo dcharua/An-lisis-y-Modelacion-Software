@@ -9,22 +9,34 @@
     + void empaquetadoComputador()
   }
   Class Laptop{
+    friend class Fabrica
     +queSoy()
+    - Laptop():Fabrica
   }
   Class Desktop{
+    friend class Fabrica
     +queSoy()
+    - Desktop():Fabrica
   }
   Class Netbook{
+    friend class Fabrica
     +queSoy()
+    - Netbook():Fabrica
   }
   Class Tablet{
+    friend class Fabrica
     +queSoy()
+    - Tablet():Fabrica
   }
   Class Rack{
+    friend class Fabrica
     +queSoy()
+    - Rack():Fabrica
   }
   Class Tower{
+    friend class Fabrica
     +queSoy()
+    - Tower():Fabrica
   }
 
 Fabrica --> Laptop :returns

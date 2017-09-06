@@ -11,19 +11,20 @@ public:
   ensambladoComponentes();
   instalacionConfiguracionSoftware();
   empaquetadoComputador();
+  std::cout << "Instalacion terminada!" << '\n';
   }
 
   void seleccionComponentes(){
-    std::cout << "en seleccionComponentes" << '\n';
+    std::cout << "En seleccion de componentes..." << '\n';
   }
   void ensambladoComponentes(){
-    std::cout << "en ensambladoComponentes" << '\n';
+    std::cout << "En ensamblado de componentes..." << '\n';
   }
   void instalacionConfiguracionSoftware(){
-    std::cout << "en instalacionConfiguracionSoftware" << '\n';
+    std::cout << "En instalacion de configuracion del software..." << '\n';
   }
   void empaquetadoComputador(){
-    std::cout << "en empaquetadoComputador" << '\n';
+    std::cout << "En empaquetado del computador..." << '\n';
   }
   template<class Prod>
   Prod* crear(){
@@ -107,7 +108,7 @@ int main() {
       t->instalacion();
       t->queSoy();
     break;}
-    
+
     default: std::cout << "Esa opcion no existe" << '\n';
     break;
   }

@@ -1,0 +1,47 @@
+@startuml
+  Class Fabrica{
+    + string nombre
+    + template<class Prod> Prod* crear()
+    + void instalacion()
+    + void seleccionComponentes()
+    + void ensambladoComponentes()
+    + void instalacionConfiguracionSoftware()
+    + void empaquetadoComputador()
+  }
+  Class Laptop{
+    +queSoy()
+  }
+  Class Desktop{
+    +queSoy()
+  }
+  Class Netbook{
+    +queSoy()
+  }
+  Class Tablet{
+    +queSoy()
+  }
+  Class Rack{
+    +queSoy()
+  }
+  Class Tower{
+    +queSoy()
+  }
+
+Fabrica --> Laptop :returns
+Laptop --|> Fabrica
+
+Fabrica --> Desktop :returns
+Desktop --|> Fabrica
+
+Fabrica --> Netbook :returns
+Netbook --|> Fabrica
+
+Fabrica --> Tablet :returns
+Tablet --|> Fabrica
+
+Fabrica --> Rack :returns
+Rack --|> Fabrica
+
+Fabrica --> Tower :returns
+Tower --|> Fabrica
+@enduml

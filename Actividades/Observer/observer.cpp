@@ -3,8 +3,7 @@
 using namespace std;
 
 class Subject {
-    // 1. "independent" functionality
-    vector < class Observer * > views; // 3. Coupled only to "interface"
+    vector < class Observer * > views;
     string name;
   public:
     void attach(Observer *obs) {
@@ -26,7 +25,6 @@ class Observer :public Subject{
     Observer(Subject *mod, string n) {
         model = mod;
         name = n;
-        // 4. Observers register themselves with the Subject
         model->attach(this);
     }
     string getName(){return name;}
@@ -57,7 +55,6 @@ int main() {
   Observer* obs3 = new Observer(subj, "Noticias Internacionales");
   subj2->attach(obs2);
   subj2->attach(obs3);
-
   subj3->attach(obs3);
 
   std::cout << subj->getName() << " is followed by :"<<endl;

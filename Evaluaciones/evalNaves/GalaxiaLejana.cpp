@@ -14,6 +14,12 @@ public:
   int getY(){return positiony;}
   int getID() {return id;}
   string getType() {return type;}
+  void setvalues(int x, int y, string t, int i){
+    positionx = x;
+    positiony = y;
+    type= t;
+    id = i;
+  }
   void setPosition(int x, int y){
     positionx = x;
     positiony = y;
@@ -41,35 +47,14 @@ T* Singleton<T>::instance = 0;
 
 class Spacecraft : public Singleton<Spacecraft>{
 
-public:
-  void setvalues(int x, int y, string t, int i){
-    positionx = x;
-    positiony = y;
-    type= t;
-    id = i;
-  }
 };
 
 class Asteroid : public Singleton<Asteroid>{
 
-public:
-  void setvalues(int x, int y, string t, int i){
-    positionx = x;
-    positiony = y;
-    type= t;
-    id = i;
-  }
 };
 
 class Planet : public Singleton<Planet>{
 
-public:
-  void setvalues(int x, int y, string t, int i){
-    positionx = x;
-    positiony = y;
-    type= t;
-    id = i;
-  }
 };
 
 class Board : public Singleton<Board>{
@@ -180,10 +165,26 @@ int main (){
   Planet* planet = Planet::getInstance();
   planet->setvalues(rand() % 10, rand() % 10, "Desert planet", 3);
 
+  General* g1 = new General();
+  g1->setvalues(rand() % 10, rand() % 10,"Colonization general", 4);
+
+  General* g2 = new General();
+  g2->setvalues(rand() % 10, rand() % 10,"Planet observation general", 5);
+
+  General* g3 = new General();
+  g3->setvalues(rand() % 10, rand() % 10,"Iron general", 6);
+
+  General* g4 = new General();
+  g4->setvalues(rand() % 10, rand() % 10,"Earth general", 7);
+
   Board* game = Board::getInstance();
   i.addElement(ship);
   i.addElement(asteroid);
   i.addElement(planet);
+  i.addElement(g1);
+  i.addElement(g2);
+  i.addElement(g3);
+  i.addElement(g4);
 
   char shuffle = 'y';
   while (shuffle == 'y'){
@@ -194,9 +195,31 @@ int main (){
 
     game->resetPlayer(asteroid->getX(), asteroid->getY());
     game->setPlayer(asteroid, rand() % 10, rand() % 10);
+    find_if<General*, funcion, General*> (i, collision, asteroid);
+
 
     game->resetPlayer(planet->getX(), planet->getY());
     game->setPlayer(planet, rand() % 10, rand() % 10);
+    find_if<General*, funcion, General*> (i, collision, planet);
+
+
+    game->resetPlayer(g1->getX(), g1->getY());
+    game->setPlayer(g1, rand() % 10, rand() % 10);
+    find_if<General*, funcion, General*> (i, collision, g1);
+
+    game->resetPlayer(g2->getX(), g2->getY());
+    game->setPlayer(g2, rand() % 10, rand() % 10);
+    find_if<General*, funcion, General*> (i, collision, g2);
+
+    game->resetPlayer(g3->getX(), g3->getY());
+    game->setPlayer(g3, rand() % 10, rand() % 10);
+    find_if<General*, funcion, General*> (i, collision, g3);
+
+    game->resetPlayer(g4->getX(), g4->getY());
+    game->setPlayer(g4, rand() % 10, rand() % 10);
+    find_if<General*, funcion, General*> (i, collision, g4);
+
+
 
     game->printBoard();
     std::cout << "Do you want to shuffle again (y/n)" << '\n';
